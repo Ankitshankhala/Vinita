@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: vinita-blog
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn main:app"
+    envVars:
+      - key: FLASK_KEY
+        value: "supersecretkey"
+      - key: DB_URI
+        value: "sqlite:///posts.db"
